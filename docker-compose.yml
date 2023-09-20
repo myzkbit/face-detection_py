@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: face-detection
+    build: ./docker
+    volumes:
+      - ./app/:/usr/src/app
+    tty: true
+  # web:
+  #   container_name: drosy-web
+  #   build: ./docker
+  #   ports:
+  #     - 8000:80
+  #   volumes:
+  #     - ./:/var/www/daddyrelax
+  #   platform: linux/x86_64
+  #   privileged: true
+  # db:
+  #   platform: linux/x86_64
+  #   image: mysql:5.6
+  #   ports:
+  #     - 3306:3306
+  #   environment:
+  #     MYSQL_DATABASE: ${DB_DATABASE}
+  #     MYSQL_USER: ${DB_USERNAME}
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #     MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+  #     TZ: Tokyo/Asia
+  #   volumes:
+  #     - db-store:/var/lib/mysql
+  #     - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+  #   container_name: drosy-mysql
+  # mail:
+  #   image: mailhog/mailhog
+  #   container_name: drosy-mailhog
+  #   ports:
+  #     - "8025:8025"
+  #   hostname: localhost
+  #   environment:
+  #     MH_STORAGE: maildir
+  #     MH_MAILDIR_PATH: /tmp
+  #   volumes:
+  #     - maildir:/tmp
